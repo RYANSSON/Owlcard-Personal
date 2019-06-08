@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{29396FD2-81B1-4FF1-AE57-8CA8309DBFEF}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Owlcard/Classes/Transaction.cs">
+    <Files>
+      <File FileName="../Downloads/OwlCard-Repo-master/OwlCard/OwlCard/secure/Deposit.aspx.cs" Line="1" Column="1" />
+      <File FileName="../Downloads/OwlCard-Repo-master/OwlCard/OwlCard/secure/Purchases.aspx.cs" Line="1" Column="1" />
+      <File FileName="OwlCard/Web.config" Line="46" Column="6" />
+      <File FileName="OwlCard/Classes/Transaction.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="OwlCard" expanded="True">
+            <Node name="OwlCard" expanded="True">
+              <Node name="WebReferences" expanded="True" />
+              <Node name="Classes" expanded="True" />
+              <Node name="images" expanded="True" />
+              <Node name="Properties" expanded="True">
+                <Node name="Settings.settings" selected="True" />
+              </Node>
+              <Node name="secure" expanded="True" />
+              <Node name="Web.config" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.OwlCard PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
