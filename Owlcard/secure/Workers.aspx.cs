@@ -20,16 +20,16 @@ namespace OwlCard
             protected void Page_Load(object sender, EventArgs e)
             {
 
-            if (!IsPostBack && (Session["Authorized"] == null || Session["Authorized"].ToString() != "Admin"))
+            //if (!IsPostBack && (Session["Authorized"] == null || Session["Authorized"].ToString() != "Admin"))
             {
 
-                Response.Redirect("500-Error.aspx");
+            //    Response.Redirect("500-Error.aspx");
             }
-            if (!IsPostBack)
+            //if (!IsPostBack)
             {
 
-                Rptviewjob();
-                lblmsg2.Text = "";
+             //   Rptviewjob();
+             //   lblmsg2.Text = "";
 
       
 
@@ -41,11 +41,11 @@ namespace OwlCard
             {
 
         
-            objCommand.Parameters.Clear();
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "GetAdminsAndWorkers";
-                rptWokers.DataSource = conn.GetDataSetUsingCmdObj(objCommand);
-                rptWokers.DataBind();
+            //objCommand.Parameters.Clear();
+             //   objCommand.CommandType = CommandType.StoredProcedure;
+            //    objCommand.CommandText = "GetAdminsAndWorkers";
+             //   rptWokers.DataSource = conn.GetDataSetUsingCmdObj(objCommand);
+            //    rptWokers.DataBind();
 
 
                 //gvWorkers.DataSource = conn.GetDataSetUsingCmdObj(objCommand);
@@ -61,29 +61,29 @@ namespace OwlCard
                 //{
                     try
                     {
-                        SqlCommand objCommand = new SqlCommand();
-                        objCommand.CommandType = CommandType.StoredProcedure;
-                        objCommand.CommandText = "CreateWorker";
-                        objCommand.Parameters.AddWithValue("@TUID", txtTUid.Text);
-                        objCommand.Parameters.AddWithValue("@name", txtFirstName.Text + " " + txtLastName.Text);
-                        objCommand.Parameters.AddWithValue("@IsAdmin",Convert.ToInt16(ddlAdminOrWorker.SelectedValue.ToString()));
-                        i = conn.DoUpdateUsingCmdObj(objCommand);
-                        if (i == -1)
+               //         SqlCommand objCommand = new SqlCommand();
+                //        objCommand.CommandType = CommandType.StoredProcedure;
+                 //       objCommand.CommandText = "CreateWorker";
+                //        objCommand.Parameters.AddWithValue("@TUID", txtTUid.Text);
+                //        objCommand.Parameters.AddWithValue("@name", txtFirstName.Text + " " + txtLastName.Text);
+                //        objCommand.Parameters.AddWithValue("@IsAdmin",Convert.ToInt16(ddlAdminOrWorker.SelectedValue.ToString()));
+                //        i = conn.DoUpdateUsingCmdObj(objCommand);
+                //        if (i == -1)
                         {
-                        lblmsg2.Text = "<div class='alert alert-danger'><strong>Worker Exists!</strong></div>";
+                //        lblmsg2.Text = "<div class='alert alert-danger'><strong>Worker Exists!</strong></div>";
                         }
-                        else
+                //        else
                         {
 
-                        lblmsg2.Text = "<div class='alert alert-success'><strong>Worker Added!</strong></div>";
-                        Rptviewjob();
+                 //       lblmsg2.Text = "<div class='alert alert-success'><strong>Worker Added!</strong></div>";
+                 //       Rptviewjob();
                         //Gridviewjob();
                     }
                     }
                     catch (Exception ex)
                     {
                
-                  lblmsg2.Text = "<div class='alert alert-danger'><strong> " + ex.ToString() + "</strong></div>";
+                 // lblmsg2.Text = "<div class='alert alert-danger'><strong> " + ex.ToString() + "</strong></div>";
                 }
                 //}
 
@@ -95,75 +95,75 @@ namespace OwlCard
 
         protected void rptWokers_ItemCommand1(object source, RepeaterCommandEventArgs e)
         {
-            Label myLabel;
-            string TUID;
-            int rowIndex = e.Item.ItemIndex;
-            if (e.CommandName== "Delete")
-            {
-                try
-                {
+            //Label myLabel;
+            //string TUID;
+            //int rowIndex = e.Item.ItemIndex;
+            //if (e.CommandName== "Delete")
+            //{
+             //   try
+             //  {
 
-                     myLabel = (Label)rptWokers.Items[rowIndex].FindControl("lblTUID");
-                     TUID = myLabel.Text;
-                    SqlCommand objCommand = new SqlCommand();
-                    objCommand.CommandType = CommandType.StoredProcedure;
-                    objCommand.CommandText = "DeleteWorker";
-                    objCommand.Parameters.AddWithValue("@TUID", TUID);
-                    conn.DoUpdateUsingCmdObj(objCommand);
-                    lblmsg2.Text = "<div class='alert alert-danger'><strong>Worker Deleted!</strong></div>";
-                    Rptviewjob();
+                   //  myLabel = (Label)rptWokers.Items[rowIndex].FindControl("lblTUID");
+                   //  TUID = myLabel.Text;
+                   // SqlCommand objCommand = new SqlCommand();
+                   // objCommand.CommandType = CommandType.StoredProcedure;
+                   // objCommand.CommandText = "DeleteWorker";
+                   // objCommand.Parameters.AddWithValue("@TUID", TUID);
+                   // conn.DoUpdateUsingCmdObj(objCommand);
+                   // lblmsg2.Text = "<div class='alert alert-danger'><strong>Worker Deleted!</strong></div>";
+                   // Rptviewjob();
 
 
-                }
-                catch (Exception ex)
-                {
-                    lblmsg2.Text = "<div class='alert alert-danger'><strong> " + ex.ToString() + "</strong></div>";
-                }
+               // }
+               // catch (Exception ex)
+               // {
+                    //lblmsg2.Text = "<div class='alert alert-danger'><strong> " + ex.ToString() + "</strong></div>";
+               // }
 
-            }
+           // }
             
-            else if (e.CommandName == "Save")
-            {
-                try
-                {
-                    CheckBox chk = (CheckBox)rptWokers.Items[rowIndex].FindControl("CheckBox1");
-                    if (chk.Checked) {
+            //else if (e.CommandName == "Save")
+            //{
+            //    try
+            //    {
+            //        CheckBox chk = (CheckBox)rptWokers.Items[rowIndex].FindControl("CheckBox1");
+            //        if (chk.Checked) {
 
-                        myLabel = (Label)rptWokers.Items[rowIndex].FindControl("lblTUID");
-                        TUID = myLabel.Text;
-                        SqlCommand objCommand = new SqlCommand();
-                        objCommand.CommandType = CommandType.StoredProcedure;
-                        objCommand.CommandText = "PromoteOrDemote";
-                        objCommand.Parameters.AddWithValue("@TUID", TUID);
-                        objCommand.Parameters.AddWithValue("@IsAdmin", 1);
-                        conn.DoUpdateUsingCmdObj(objCommand);
-                        lblmsg2.Text = "<div class='alert alert-success'><strong>Worker Info Saved!</strong></div>";
-                        Rptviewjob();
-                        
-                    }
-                    else
-                    {
+            //            myLabel = (Label)rptWokers.Items[rowIndex].FindControl("lblTUID");
+            //            TUID = myLabel.Text;
+            //            SqlCommand objCommand = new SqlCommand();
+            //            objCommand.CommandType = CommandType.StoredProcedure;
+             //           objCommand.CommandText = "PromoteOrDemote";
+            //            objCommand.Parameters.AddWithValue("@TUID", TUID);
+            //            objCommand.Parameters.AddWithValue("@IsAdmin", 1);
+            //            conn.DoUpdateUsingCmdObj(objCommand);
+            //            lblmsg2.Text = "<div class='alert alert-success'><strong>Worker Info Saved!</strong></div>";
+            //            Rptviewjob();
+            //            
+            //        }
+            //        else
+            //        {
 
-                        myLabel = (Label)rptWokers.Items[rowIndex].FindControl("lblTUID");
-                        TUID = myLabel.Text;
-                        SqlCommand objCommand = new SqlCommand();
-                        objCommand.CommandType = CommandType.StoredProcedure;
-                        objCommand.CommandText = "PromoteOrDemote";
-                        objCommand.Parameters.AddWithValue("@TUID", TUID);
-                        objCommand.Parameters.AddWithValue("@IsAdmin", 0);
-                        conn.DoUpdateUsingCmdObj(objCommand);
-                        lblmsg2.Text = "<div class='alert alert-success'><strong>Worker Info Saved!</strong></div>";
-                        Rptviewjob();
-                    }
+            //            myLabel = (Label)rptWokers.Items[rowIndex].FindControl("lblTUID");
+            //            TUID = myLabel.Text;
+            //            SqlCommand objCommand = new SqlCommand();
+            //            objCommand.CommandType = CommandType.StoredProcedure;
+            //            objCommand.CommandText = "PromoteOrDemote";
+            //            objCommand.Parameters.AddWithValue("@TUID", TUID);
+            //            objCommand.Parameters.AddWithValue("@IsAdmin", 0);
+            //            conn.DoUpdateUsingCmdObj(objCommand);
+            //            lblmsg2.Text = "<div class='alert alert-success'><strong>Worker Info Saved!</strong></div>";
+            //            Rptviewjob();
+            //        }
 
-                }
-                catch (Exception ex)
-                {
-                    lblmsg2.Text = "";
-                    lblmsg2.Text = "<div class='alert alert-danger'><strong> " + ex.ToString() + "</strong></div>";
-                }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        lblmsg2.Text = "";
+            //        lblmsg2.Text = "<div class='alert alert-danger'><strong> " + ex.ToString() + "</strong></div>";
+            //    }
 
-            }
+            //}
 
         }
 
@@ -178,10 +178,10 @@ namespace OwlCard
         {
             if (txtTUid.Text.Length == 9)
             {
-                OwlCard.Classes.WebService.LDAPuser Temple_Information = new WebService.LDAPuser();
-                Temple_Information=OwlCard.Classes.WebService.Webservice.getLDAPEntryByTUID(txtTUid.Text);
-                 txtFirstName.Text = Temple_Information.givenName;
-                txtLastName.Text = Temple_Information.sn;
+                //OwlCard.Classes.WebService.LDAPuser Temple_Information = new WebService.LDAPuser();
+               //Temple_Information=OwlCard.Classes.WebService.Webservice.getLDAPEntryByTUID(txtTUid.Text);
+               // txtFirstName.Text = Temple_Information.givenName;
+                //txtLastName.Text = Temple_Information.sn;
             }
         }
     }

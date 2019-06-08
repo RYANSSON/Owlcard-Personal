@@ -20,10 +20,10 @@ namespace OwlCard
 
             //prevents unauthorized access
 
-            if (!IsPostBack && (Session["Ipad"] == null))
-            {
-                Response.Redirect("500-Error.aspx");
-            }
+           // if (!IsPostBack && (Session["Ipad"] == null))
+            //{
+            //    Response.Redirect("500-Error.aspx");
+            //}
 
 
         }
@@ -33,7 +33,7 @@ namespace OwlCard
 
             try
             {
-                SqlCommand objCommand = new SqlCommand();
+               /* SqlCommand objCommand = new SqlCommand();
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "StoreTransaction";
                 objCommand.Parameters.AddWithValue("@TUID", txtID.Text);
@@ -67,7 +67,7 @@ namespace OwlCard
                 objCommand.Parameters.AddWithValue("@TransactionType", "Deposit");
 
 
-                conn.GetDataSetUsingCmdObj(objCommand);
+                conn.GetDataSetUsingCmdObj(objCommand);*/
                 Response.Redirect("UserMessage.aspx");
             }
             catch

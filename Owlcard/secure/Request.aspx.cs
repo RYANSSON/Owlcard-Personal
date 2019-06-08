@@ -42,13 +42,13 @@ namespace OwlCard
         protected void getPendingTransactions()
         {
             // making db call
-            SqlCommand objCommand = new SqlCommand();
+           /*SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "getPendingTransactions";
             DataSet ds = conn.GetDataSetUsingCmdObj(objCommand);
             gvDisplay.DataSource = ds;
             gvDisplay.DataBind();
-            gvupdater();  
+            gvupdater();*/  
         }
         //modified gridview on every table load
         protected void initialTableLoad()

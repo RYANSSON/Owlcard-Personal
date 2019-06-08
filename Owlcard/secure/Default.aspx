@@ -13,7 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <center><h2>These buttons are for development & demo purposes only!</h2></center>
+       <!-- <center><h2>These buttons are for development & demo purposes only!</h2></center>
         <div class="row" style="margin-top: 100px">
             <div class="row">
                 <div class="col-md-4"></div>
@@ -44,6 +44,7 @@
             </div>
             <div class="col-md-4"></div>
         </div>
+            -->
     </form>
 </body>
 </html>

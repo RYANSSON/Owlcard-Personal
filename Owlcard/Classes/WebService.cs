@@ -84,15 +84,15 @@ namespace OwlCard.Classes
 
         public static class Webservice
         {
-            private static readonly string webServiceUsername = ConfigurationManager.AppSettings["Connection_WS_Username"];
-            private static readonly string webServicePassword = ConfigurationManager.AppSettings["Connection_WS_Password"];
+            //private static readonly string webServiceUsername = ConfigurationManager.AppSettings["Connection_WS_Username"];
+            //private static readonly string webServicePassword = ConfigurationManager.AppSettings["Connection_WS_Password"];
 
             /// <summary>
             /// Creates a LDAPuser (Person Object) when passing a TUID
             /// </summary>
             /// <param name="tuID">TUID</param>
             /// <returns>LDAPuser</returns>
-            public static LDAPuser getLDAPEntryByTUID(string tuID)
+           /* public static LDAPuser getLDAPEntryByTUID(string tuID)
             {
                 // Create the WebService proxy, send the search request and receive the TempleLDAPEntry object
                 LDAP_Search.LDAP_Search ldapProxy = new LDAP_Search.LDAP_Search();
@@ -126,7 +126,7 @@ namespace OwlCard.Classes
                     return personLDAPEntry;
                 }
             }
-
+            */
 
            
             /// <summary>

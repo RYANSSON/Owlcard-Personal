@@ -20,16 +20,16 @@ namespace OwlCard
         private decimal cost;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack && (Session["Ipad"] == null))
-            {
-                Response.Redirect("500-Error.aspx");
-            }
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
-            Response.Cache.SetNoStore();
-            if (!IsPostBack)
-            {
-                SqlCommand objCommand = new SqlCommand();
+           //if (!IsPostBack && (Session["Ipad"] == null))
+            //{
+           //     Response.Redirect("500-Error.aspx");
+            //}
+           // Response.Cache.SetCacheability(HttpCacheability.NoCache);
+           // Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+           // Response.Cache.SetNoStore();
+           // if (!IsPostBack)
+           // {
+           /*     SqlCommand objCommand = new SqlCommand();
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "GetPrice";
                 objCommand.Parameters.AddWithValue("@name", "Replacement");
@@ -46,13 +46,14 @@ namespace OwlCard
                 }
 
             }
+            */           
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
  
             try
-            {
+            {/*
                 SqlCommand objCommand = new SqlCommand();
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "StoreTransaction";
@@ -81,7 +82,7 @@ namespace OwlCard
                 }
                 objCommand.Parameters.AddWithValue("@TransactionType", "Replace");
                 
-                conn.GetDataSetUsingCmdObj(objCommand);
+                conn.GetDataSetUsingCmdObj(objCommand);*/
                 Response.Redirect("UserMessage.aspx");
             }
             catch (Exception ex)

@@ -56,7 +56,7 @@ namespace OwlCard.Classes
         //      returns newly created TransactionID
         public static int CreateTransaction (Transaction thisTrans)
         {
-            Connection conn = new Connection();
+            /*Connection conn = new Connection();
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "CreateTransactionRecord";
@@ -70,6 +70,8 @@ namespace OwlCard.Classes
             objCommand.Parameters.Add(result);
             conn.DoUpdateUsingCmdObj(objCommand);
             int transID = Convert.ToInt32(objCommand.Parameters["@transID"].Value);
+            */
+            int transID = 1;           
             return transID;
         }
 
@@ -87,7 +89,7 @@ namespace OwlCard.Classes
                     objCommand.Parameters.AddWithValue("@itemID", ids[i]);
                     objCommand.Parameters.AddWithValue("@quantity", Quantities[i]);
                     objCommand.Parameters.AddWithValue("@cost", Quantities[i] * costs[i]);
-                    conn.DoUpdateUsingCmdObj(objCommand);
+                    //conn.DoUpdateUsingCmdObj(objCommand);
                 }
             }
            
@@ -101,7 +103,7 @@ namespace OwlCard.Classes
             objCommand.CommandText = "UpdateTransactionCost";
             objCommand.Parameters.AddWithValue("@transID", transID);
             objCommand.Parameters.AddWithValue("@cost", cost);
-            conn.DoUpdateUsingCmdObj(objCommand);
+           //conn.DoUpdateUsingCmdObj(objCommand);
         }
     }
 }

@@ -21,30 +21,30 @@ namespace OwlCard.secure
         int itemcount;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack && (Session["Authorized"] == null || Session["Authorized"].ToString() != "Admin"))
-            {
-                Response.Redirect("500-Error.aspx");
-            }
-            if (!IsPostBack)
-            {
-                GenerateSearchResultTable(getItems());
-            }
+            //if (!IsPostBack && (Session["Authorized"] == null || Session["Authorized"].ToString() != "Admin"))
+            //{
+            //    Response.Redirect("500-Error.aspx");
+            //}
+            //if (!IsPostBack)
+            //{
+            //    GenerateSearchResultTable(getItems());
+            //}
         }
-        protected DataSet getItems()
+        protected void getItems()
         {
             // making db call
-            SqlCommand objCommand = new SqlCommand();
+            /*SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "GetItemsInfo";
             DataSet ds = conn.GetDataSetUsingCmdObj(objCommand);
             return ds;
-            
+            */
 
 
         }
         private void GenerateSearchResultTable(DataSet ds)
         {
-            DataTable d;       // used to reference a table in the dataset
+            /*DataTable d;       // used to reference a table in the dataset
             DataRow record;    // used to reference a singe row (record) from the dataset
 
             String strHTML = "";
@@ -104,10 +104,12 @@ namespace OwlCard.secure
 
             // Write the HTML string for the table to a DIV in the HTML markup of the ASPX page
             divDisplay.InnerHtml = strHTML;
+            */           
 
         }
         protected void Add_Click(object sender, EventArgs e)
         {
+            /*
             if (!txtName.Text.Equals("") && (!txtCost.Equals("") && Double.Parse(txtCost.Text) > 0))
             {
 
@@ -126,9 +128,11 @@ namespace OwlCard.secure
             {
                 lblAddWarning.Style.Add("display", "block");
             }
+            */
         }
         protected void Update_Click(object sender, EventArgs e)
         {
+            /*
             if (!txtUpdateRow.Text.Equals("") && Int32.Parse(txtUpdateRow.Text) > 0)
             {
                 gvItems.Style.Add("Display", "inline-block");
@@ -152,10 +156,11 @@ namespace OwlCard.secure
             {
                 lblIdWarning.Style.Add("display", "block");
             }
+            */
         }
         protected void SubmitUpdate_Click(object sender, EventArgs e)
         {
-
+            /*
             GridViewRow gr = gvItems.Rows[0];
             TextBox tbName = (TextBox)gr.FindControl("txtUpdateName");
             TextBox tbDescription = (TextBox)gr.FindControl("txtUpdateDescription");
@@ -170,9 +175,11 @@ namespace OwlCard.secure
             objCommand.Parameters.AddWithValue("@cost", Double.Parse(tbCost.Text));
             conn.DoUpdateUsingCmdObj(objCommand);
             GenerateSearchResultTable(getItems());
+            */           
         }
         protected void DeleteUpdate_Click(object sender, EventArgs e)
         {
+            /*
             GridViewRow gr = gvItems.Rows[0];
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
@@ -180,6 +187,7 @@ namespace OwlCard.secure
             objCommand.Parameters.AddWithValue("@itemID", Int32.Parse(gr.Cells[0].Text));
             conn.DoUpdateUsingCmdObj(objCommand);
             GenerateSearchResultTable(getItems());
+            */           
         }
     }
 }

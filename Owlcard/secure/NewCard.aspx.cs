@@ -21,10 +21,10 @@ namespace OwlCard
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack && (Session["Ipad"] == null))
-            {
-                Response.Redirect("500-Error.aspx");
-            }
+            //if (!IsPostBack && (Session["Ipad"] == null))
+           //{
+            //    Response.Redirect("500-Error.aspx");
+            //}
 
             /*Application is running on server and the user has active Shibboleth session.*/
 
@@ -34,7 +34,7 @@ namespace OwlCard
            
             try
             {
-
+                /*
                 SqlCommand objCommand = new SqlCommand();
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "StoreTransaction";
@@ -48,6 +48,7 @@ namespace OwlCard
                 objCommand.Parameters.AddWithValue("@TransactionType", "New");
         
                 conn.GetDataSetUsingCmdObj(objCommand);
+                */               
                 Response.Redirect("UserMessage.aspx");
             }
             catch (Exception ex)

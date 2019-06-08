@@ -8,13 +8,13 @@ namespace OwlCard.Classes
 {
     public class Connection
     {
-        readonly String SqlConnectString = ConfigurationManager.ConnectionStrings["Connection_Database"].ConnectionString;
+        //readonly String SqlConnectString = ConfigurationManager.ConnectionStrings["Connection_Database"].ConnectionString;
         SqlConnection myConnectionSql;
         DataSet ds;
 
         public Connection()
         {
-            myConnectionSql = new SqlConnection(SqlConnectString);
+          // myConnectionSql = new SqlConnection(SqlConnectString);
         }
 
 

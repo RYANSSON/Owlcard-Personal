@@ -18,16 +18,16 @@ namespace OwlCard
         protected void Page_Load(object sender, EventArgs e)
         {
             //// prevents unauthorized access
-            if (!IsPostBack && (Session["Ipad"] == null))
-            {
-                Response.Redirect("500-Error.aspx");
-            }
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
-            Response.Cache.SetNoStore();
-            if (!IsPostBack)
-            {
-
+           //if (!IsPostBack && (Session["Ipad"] == null))
+           // {
+            //    Response.Redirect("500-Error.aspx");
+           // }
+            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
+           // Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+           // Response.Cache.SetNoStore();
+           // if (!IsPostBack)
+          //  {
+          /*
                 SqlCommand objCommand2 = new SqlCommand();
                 objCommand2.CommandType = CommandType.StoredProcedure;
                 objCommand2.CommandText = "GetPurchaseItems";
@@ -38,7 +38,7 @@ namespace OwlCard
 
 
 
-
+    */
         }
 
         // resets all form controls on page load
@@ -62,6 +62,7 @@ namespace OwlCard
 
             try
             {
+                /*
                 int[] quantities = new int[gvDisplay.Rows.Count];
                 int[] ids = new int[gvDisplay.Rows.Count];
                 decimal[] costs = new decimal[gvDisplay.Rows.Count];
@@ -99,9 +100,9 @@ namespace OwlCard
                 {
                     lblmsg.Text = "<div class='alert alert-danger'><strong>Please Enter Atleast 1 Positive Numbers!</strong></div>";
                 }
-                else
+                else*/
                 {
-
+                    /*
 
                     Transaction thisTrans = new Transaction();
 
@@ -120,7 +121,7 @@ namespace OwlCard
                     decimal totalCost = CalculateCost(quantities, costs);
 
                     // update Transaction record with total cost
-                    Transaction.UpdateTransactionCost(transID, totalCost);
+                    Transaction.UpdateTransactionCost(transID, totalCost);*/
                     Response.Redirect("UserMessage.aspx");
                 }
             }

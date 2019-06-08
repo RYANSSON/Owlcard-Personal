@@ -30,7 +30,7 @@ namespace OwlCard
         protected void Page_Load(object sender, EventArgs e)
         {
             // prevents unauthorized access
-            if (!IsPostBack && (Session["Authorized"] == null || Session["Authorized"].ToString() != "Admin"))
+            /*if (!IsPostBack && (Session["Authorized"] == null || Session["Authorized"].ToString() != "Admin"))
             {
                 Response.Redirect("500-Error.aspx");
             }
@@ -61,13 +61,15 @@ namespace OwlCard
                     GenerateSearchResultTable();
                 }
             }
+            */
         }
 
 
 
         //get DS from DB
-        protected DataSet getTransactions()
+        protected void getTransactions()
         {
+            /*
 
             // making db call
             SqlCommand objCommand = new SqlCommand();
@@ -83,11 +85,14 @@ namespace OwlCard
                 objCommand.Parameters.AddWithValue("@approved", approved);
             
             return conn.GetDataSetUsingCmdObj(objCommand);
+            */
+
         }
 
         //Per Business Requirement, by default on initial page load we need to show cash transactions for the last two weeks.
-        protected DataSet getTransactionsByDateAndTypeCashOnInitialPageLoad()
+        protected void getTransactionsByDateAndTypeCashOnInitialPageLoad()
         {
+            /*
             // making db call
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
@@ -109,6 +114,7 @@ namespace OwlCard
 
 
             return conn.GetDataSetUsingCmdObj(objCommand);
+            */
 
         }
 
@@ -116,7 +122,7 @@ namespace OwlCard
         protected void btnSearch_Click(object sender, EventArgs e)
         {
            // clearSearchCriteria();
-
+           /*
             if (!isUserInputValid())
             {
                 divDisplay.InnerHtml = "";
@@ -148,6 +154,7 @@ namespace OwlCard
                 lblmsg.Text = "<div class='alert alert-danger'><strong>There is an issue with establishing connection to the database</strong>" + ex.ToString() + "</div>";
 
             }
+            */          
         }
         protected void clearSearchCriteria()
         {
@@ -559,6 +566,5 @@ namespace OwlCard
         }
 
       
-
+        }
     }
-}
