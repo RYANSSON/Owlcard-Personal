@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{29396FD2-81B1-4FF1-AE57-8CA8309DBFEF}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Owlcard/Classes/Transaction.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Owlcard/secure/Welcome.aspx.cs">
     <Files>
-      <File FileName="../Downloads/OwlCard-Repo-master/OwlCard/OwlCard/secure/Deposit.aspx.cs" Line="1" Column="1" />
-      <File FileName="../Downloads/OwlCard-Repo-master/OwlCard/OwlCard/secure/Purchases.aspx.cs" Line="1" Column="1" />
       <File FileName="OwlCard/Web.config" Line="46" Column="6" />
       <File FileName="OwlCard/Classes/Transaction.cs" Line="1" Column="1" />
+      <File FileName="OwlCard/Properties/Settings.settings" Line="1" Column="1" />
+      <File FileName="OwlCard/secure/Welcome.aspx" Line="1" Column="1" />
+      <File FileName="OwlCard/secure/Welcome.aspx.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,10 +15,12 @@
               <Node name="WebReferences" expanded="True" />
               <Node name="Classes" expanded="True" />
               <Node name="images" expanded="True" />
-              <Node name="Properties" expanded="True">
-                <Node name="Settings.settings" selected="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="secure" expanded="True">
+                <Node name="Welcome.aspx" expanded="True">
+                  <Node name="Welcome.aspx.cs" selected="True" />
+                </Node>
               </Node>
-              <Node name="secure" expanded="True" />
               <Node name="Web.config" expanded="True" />
             </Node>
           </Node>

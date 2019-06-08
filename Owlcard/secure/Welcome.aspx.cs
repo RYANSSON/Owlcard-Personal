@@ -12,17 +12,18 @@ namespace OwlCard
         protected void Page_Load(object sender, EventArgs e)
         {
             // prevents unauthorized access
-            if (!IsPostBack && ((Session["Ipad"] == null && Session["Authorized"] == null)))
-            {
-                Response.Redirect("500-Error.aspx");
-            }
+            //if (!IsPostBack && ((Session["Ipad"] == null && Session["Authorized"] == null)))
+            //{
+            //    Response.Redirect("500-Error.aspx");
+            //}
             /*else */
-            else
-            {
-                Session["Authorized"] = "none";
-                Session.Clear();
-                Session["Ipad"] = "Ipad";
-            }
+            //else
+            //{
+            //    Session["Authorized"] = "none";
+            //    Session.Clear();
+            //    Session["Ipad"] = "Ipad";
+            //}
+
         }
     }
 }
