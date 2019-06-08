@@ -26,16 +26,16 @@ namespace OwlCard
             // prevents unauthorized access
             //      if Authorized session is empty, redirect
             //session checks
-            if (!IsPostBack && Session["Authorized"] == null)
-            {
-                Response.Redirect("500-Error.aspx");
-            }
+            //if (!IsPostBack && Session["Authorized"] == null)
+            //{
+            //    Response.Redirect("500-Error.aspx");
+            //}
             //first GV load
-            if (!IsPostBack)
-            {
-                getPendingTransactions();
-            }
-            initialTableLoad();
+            //if (!IsPostBack)
+            //{
+           //     getPendingTransactions();
+            //}
+           // initialTableLoad();
             myModal.Style.Add("display", "none");
         }
         //gets all pending transactions for workers
@@ -82,6 +82,7 @@ namespace OwlCard
         //on postback table adjustments
         protected void gvupdater()
         {
+            /*
             foreach (GridViewRow gr in gvDisplay.Rows)
             {
                 //updates row colors
@@ -126,7 +127,7 @@ namespace OwlCard
                         }
                     }
                 }
-            }
+            }*/
         }
         //runs when a row is approved
         protected void approveClick(object sender, EventArgs e)
@@ -353,10 +354,10 @@ namespace OwlCard
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                int TransactionId = Int32.Parse(gvDisplay.DataKeys[e.Row.RowIndex].Value.ToString());
-                GridView gvItems = e.Row.FindControl("gvItems") as GridView;
-                gvItems.DataSource = GetData(TransactionId);
-                gvItems.DataBind(); 
+                //int TransactionId = Int32.Parse(gvDisplay.DataKeys[e.Row.RowIndex].Value.ToString());
+                //GridView gvItems = e.Row.FindControl("gvItems") as GridView;
+                //gvItems.DataSource = GetData(TransactionId);
+                //gvItems.DataBind(); 
             }
            
              
@@ -409,13 +410,13 @@ namespace OwlCard
         protected void CurrentQue(object sender, EventArgs e)
         {
             isTodays = false;
-            getPendingTransactions();
+            /*getPendingTransactions();
             gvupdater();
-            initialTableLoad();
+            initialTableLoad();*/
             lblTableTitle.Text = "Unapproved Transactions";
             btnTodaysHistory.CssClass = "tab";
             btnCurrentItems.CssClass = "tab active";
-            gvDisplay.HeaderRow.Cells[8].Text = "Approve/Deny";
+            //gvDisplay.HeaderRow.Cells[8].Text = "Approve/Deny";
 
         }
         protected void TodaysHistory(object sender, EventArgs e)
@@ -426,7 +427,7 @@ namespace OwlCard
         }
         protected void todaysTable()
         {
-            SqlCommand objCommand = new SqlCommand();
+           /* SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "getWorkersDailyTransactions";
             objCommand.Parameters.AddWithValue("@workerID", Session["ID"].ToString());
@@ -434,12 +435,12 @@ namespace OwlCard
             DataSet ds = conn.GetDataSetUsingCmdObj(objCommand);
             
             gvDisplay.DataSource = ds;
-            gvDisplay.DataBind();
+            gvDisplay.DataBind();*/
             gvupdater();
             initialTableLoad();
             lblTableTitle.Text = "Todays Transactions";
             btnCurrentItems.CssClass = "tab";
-            btnTodaysHistory.CssClass = "tab active";
+            btnTodaysHistory.CssClass = "tab active";/*
             foreach (GridViewRow gr in gvDisplay.Rows)
             {
                 Button button = (Button)gr.FindControl("btnRowSubmit");
@@ -461,7 +462,7 @@ namespace OwlCard
                     gvDisplay.Rows[gr.RowIndex].Cells[8].Text = "Denied";
 
             }
-            gvDisplay.HeaderRow.Cells[8].Text = "Approved";
+            gvDisplay.HeaderRow.Cells[8].Text = "Approved";*/
         }
 
         protected void FilterTransactions_Click(object sender, EventArgs e)

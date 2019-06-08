@@ -11,9 +11,9 @@ namespace OwlCard
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((Session["Authorized"].ToString() != "Admin"))
+           // if ((Session["Authorized"].ToString() != "Admin"))
             {
-                admintab.Style.Add("display", "none");
+                //admintab.Style.Add("display", "none");
             }
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));

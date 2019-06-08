@@ -11,11 +11,11 @@ namespace OwlCard.secure
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
-            Response.Cache.SetNoStore();
-            Session.Abandon();
-            Session.Clear();
+            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
+           // Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+            //Response.Cache.SetNoStore();
+           // Session.Abandon();
+           // Session.Clear();
 
         }
     }

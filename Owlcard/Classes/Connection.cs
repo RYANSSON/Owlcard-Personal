@@ -109,11 +109,11 @@ namespace OwlCard.Classes
         public DataSet GetDataSetUsingCmdObj(SqlCommand theCommand)
         {
             // This method is used for Stored Procedures (SELECT statement only) with Parameters
-            theCommand.Connection = myConnectionSql;
-            SqlDataAdapter myDataAdapter = new SqlDataAdapter(theCommand);
+            //theCommand.Connection = myConnectionSql;
+           // SqlDataAdapter myDataAdapter = new SqlDataAdapter(theCommand);
             DataSet myDataSet = new DataSet();
-            myDataAdapter.Fill(myDataSet);
-            ds = myDataSet;
+            //myDataAdapter.Fill(myDataSet);
+            //ds = myDataSet;
 
             return myDataSet;
 

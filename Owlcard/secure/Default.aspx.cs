@@ -48,6 +48,8 @@ namespace OwlCard.secure
                 /*Use employee number to get user information from web services and then redirect*/
                 //GetUserInformation(employeeNumber);
             } // end if statement
+           // Session["Authorized"] = "Admin";
+
             Server.Transfer("Request.aspx");
 
         } // end page load
@@ -59,39 +61,38 @@ namespace OwlCard.secure
         //   string employeeNumber = Request.Headers["employeeNumber"]; //Use this to retrieve the user's information via the web services  
         //    Session["SSO_Attribute_mail"] = Request.Headers["mail"];
         //    Session["SSO_Attribute_affiliation"] = Request.Headers["affiliation"];
-         //   Session["SSO_Attribute_eduPersonPrincipalName"] = Request.Headers["eduPersonPrincipalName"];
-         //   Session["SSO_Attribute_Unscoped_Affiliation"] = Request.Headers["unscopedaffiliation"];
+        //   Session["SSO_Attribute_eduPersonPrincipalName"] = Request.Headers["eduPersonPrincipalName"];
+        //   Session["SSO_Attribute_Unscoped_Affiliation"] = Request.Headers["unscopedaffiliation"];
         //    Session["SSO_Attribute_employeeNumber"] = employeeNumber;
 
-         //   return employeeNumber;
-       // }
+        //   return employeeNumber;
+        // }
 
 
         //protected void GetUserInformation(string employeeNumber)
-       // {
-            //if (!string.IsNullOrWhiteSpace(employeeNumber))
+        // {
+        //if (!string.IsNullOrWhiteSpace(employeeNumber))
         //    {
-             //   int authLevel = IsAuthorized(employeeNumber);
+        //   int authLevel = IsAuthorized(employeeNumber);
 
-                // if student not authorized ????? ---- CURRENTLY REDIRECTING TO A 500 ERROR PAGE
-             //   if (authLevel == 2)
-         //       {
-            //        Session.Abandon();
-               
-            //        Server.Transfer("request.aspx");
-         //       }
+        // if student not authorized ????? ---- CURRENTLY REDIRECTING TO A 500 ERROR PAGE
+        //   if (authLevel == 2)
+        //       {
+        //        Session.Abandon();
 
-                // student worker, NO access to History.aspx or Admin.aspx
-            //    else if (authLevel == 0)
-            //    {
-             //       Session["Authorized"] = "Student";
-                    
-           //     }
-               
-                // admin - access to every page
-           //     else
-           //     {
-           //         Session["Authorized"] = "Admin";
+        //        Server.Transfer("request.aspx");
+        //       }
+
+        // student worker, NO access to History.aspx or Admin.aspx
+        //    else if (authLevel == 0)
+        //    {
+        //       Session["Authorized"] = "Student";
+
+        //     }
+
+        // admin - access to every page
+        //     else
+        //     {
             //    }
 
                 /*Successful Login - Allowed to be redirected to Request.aspx*/
